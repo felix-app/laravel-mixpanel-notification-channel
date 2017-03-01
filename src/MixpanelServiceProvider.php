@@ -4,6 +4,8 @@ namespace NotificationChannels\Mixpanel;
 
 use Illuminate\Support\ServiceProvider;
 
+use Mixpanel;
+
 class MixpanelServiceProvider extends ServiceProvider
 {
     /**
@@ -12,16 +14,13 @@ class MixpanelServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        /*
+    {        
         $this->app->when(MixpanelChannel::class)
-            ->needs(Mandrill::class)
+            ->needs(Mixpanel::class)
             ->give(function () {
-                $apiKey = config('services.mandrill.secret');
-
-                return new Mandrill($apiKey);
-            });
-        */
+                $apiKey = config('services.mixpanel.secret');                
+                return Mixpanel::getInstance($apiKey);
+            });        
     }
 
     /**
@@ -32,7 +31,7 @@ class MixpanelServiceProvider extends ServiceProvider
     public function register()
     {
         $source = realpath(__DIR__.'/../config/services.php');
-
+        
         $this->mergeConfigFrom($source, 'services.mixpanel');
     }
 }
