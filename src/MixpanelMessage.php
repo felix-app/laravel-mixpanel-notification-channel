@@ -101,5 +101,7 @@ class MixpanelMessage
     public function property($property, $value)
     {
         $this->properties[$property] = $value;
+
+        return $this;
     }
 }
