@@ -8,8 +8,20 @@ use Mixpanel;
 
 class MixpanelChannel
 {
+    /**
+     * Mixpanel API client Lib
+     *
+     * @var Mixpanel $mixpanel
+     * @access protected
+     */
     protected $mixpanel;
     
+    /**
+     * Set Mixpanel API client instance
+     *
+     * @param Mixpanel $mixpanel
+     * @access public
+     */
     public function __construct(Mixpanel $mixpanel)
     {
         $this->mixpanel = $mixpanel;
@@ -74,6 +86,12 @@ class MixpanelChannel
         }
     }
 
+    /**
+     * Performs some MixpanelMessage validation
+     *
+     * @param MixpanelMessage $message
+     * @access protected
+     */
     protected function validateOrFailMessage(MixpanelMessage $message)
     {
         if(empty($message->identity)) {
