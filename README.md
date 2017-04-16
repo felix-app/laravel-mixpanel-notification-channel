@@ -9,7 +9,6 @@
     - [Available Message methods](#available-message-methods)
 - [Changelog](#changelog)
 - [Testing](#testing)
-- [Security](#security)
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [License](#license)
